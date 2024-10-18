@@ -11,6 +11,8 @@ exports.createComicBook = async (req, res) => {
   }
 };
 
+
+
 // Update a comic book
 exports.updateComicBook = async (req, res) => {
   try {
@@ -22,7 +24,7 @@ exports.updateComicBook = async (req, res) => {
   }
 };
 
-// Delete a comic book
+// Delete comic book
 exports.deleteComicBook = async (req, res) => {
   try {
     const comicBook = await ComicBook.findByIdAndDelete(req.params.id);
@@ -30,10 +32,11 @@ exports.deleteComicBook = async (req, res) => {
     res.send(comicBook);
   } catch (err) {
     res.status(400).send(err.message);
+
   }
 };
 
-// Get a list of comic books with pagination, filtering, and sorting
+// Get list of comic books
 exports.getComicBooks = async (req, res) => {
   try {
     const { page = 1, limit = 10, sortBy = 'bookName', order = 'asc', ...filters } = req.query;
@@ -54,13 +57,14 @@ exports.getComicBooks = async (req, res) => {
   }
 };
 
-// Get a single comic book by ID
+// Get book by ID
 exports.getComicBookById = async (req, res) => {
   try {
     const comicBook = await ComicBook.findById(req.params.id);
-    if (!comicBook) return res.status(404).send('Comic book not found.');
+    if (!comicBook)  return res.status(404).send('Comic book not found.');
     res.send(comicBook);
   } catch (err) {
     res.status(400).send(err.message);
+
   }
 };

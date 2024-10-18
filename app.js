@@ -5,7 +5,7 @@ const comicBooks = require('./routes/comicBooks');
 const app = express();
 connectDB();
 
-app.use(express.json()); // Middleware to parse JSON
+app.use(express.json()); 
 app.use('/api/comic-books', comicBooks); // Route handler for comic book API
 
 const port = process.env.PORT || 3000;

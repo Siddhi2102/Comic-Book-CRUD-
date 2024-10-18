@@ -2,19 +2,19 @@ const express = require('express');
 const router = express.Router();
 const comicBookController = require('../controllers/comicBookController');
 
-// Route to create a comic book
+// Route to create 
 router.post('/', comicBookController.createComicBook);
 
-// Route to update a comic book
+// Route to update 
 router.put('/:id', comicBookController.updateComicBook);
 
-// Route to delete a comic book
+// Route to delete 
 router.delete('/:id', comicBookController.deleteComicBook);
 
-// Route to get a list of comic books with pagination and filters
+// Route to get a list 
 router.get('/', comicBookController.getComicBooks);
 
-// Route to get details of a single comic book by ID
+// Route to get details of a book by ID
 router.get('/:id', comicBookController.getComicBookById);
 
 module.exports = router;
